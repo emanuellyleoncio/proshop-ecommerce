@@ -1,8 +1,8 @@
-import React from "react";
 import { Container } from "react-bootstrap";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Header from "./components/Header.tsx";
+import Home from "./pages/Home.tsx";
+import Footer from "./components/Footer.tsx";
+
 
 const App = () => {
   return (
