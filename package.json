@@ -1,0 +1,25 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "eCommerce application built withthe MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "ts-node --esm ./backend/src/server.ts",
+    "build": "tsc",
+    "start": "node ./backend/dist/server.js"
+  },
+  "author": "Emanuelly Leoncio",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.2"
+  }
+}

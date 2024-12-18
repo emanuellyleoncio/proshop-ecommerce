@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "rootDir": "./backend/src",
+    "outDir": "./backend/dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "ts-node": { "esm": true },
+  "include": ["./backend/**/*.ts"],
+  "exclude": ["node_modules"]
+}
