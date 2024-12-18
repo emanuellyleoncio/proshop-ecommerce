@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "es2016",  
+    "module": "commonjs",
     "rootDir": "./backend/src",
     "outDir": "./backend/dist",
     "strict": true,
@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "ts-node": { "esm": true },
-  "include": ["./backend/**/*.ts"],
+  "include": ["./backend/src/**/*.ts"],
   "exclude": ["node_modules"]
 }
