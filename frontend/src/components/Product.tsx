@@ -1,33 +1,32 @@
 import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Rating from "./Rating";
+import { ProductType } from "../products";
 
-type ProductProps = {
-  product: {
-    _id: number;
-    name: string;
-    image: string;
-    description: string;
-    brand: string;
-    category: string;
-    price: number;
-    countInStock: number;
-    rating: number;
-    numReviews: number;
-  };
+export type ProductProps = {
+  product: ProductType;
 };
 
 const Product = ({ product }: ProductProps) => {
   return (
     <Card className="my-3 p-3 rounded">
-      <a href={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <CardImg src={product.image}></CardImg>
-      </a>
+      </Link>
 
       <CardBody>
-        <a href={`/product/${product._id}`}>
-          <CardTitle as="div">
+        <Link to={`/product/${product._id}`}>
+          <CardTitle as="div" className="product-title">
             <strong>{product.name}</strong>
           </CardTitle>
-        </a>
+        </Link>
+
+        <CardText as="div">
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
+        </CardText>
 
         <CardText as="h3">${product.price}</CardText>
       </CardBody>
