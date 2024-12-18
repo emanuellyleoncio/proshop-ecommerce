@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import products from "../products";
-import Product from "../components/Product";
 
-type ProductProps = {
+import Product from "../components/Product";
+import axios from "axios";
+
+export type ProductProps = {
   _id: number,
   name: string,
   image: string,
@@ -18,6 +19,18 @@ type ProductProps = {
 }
 
 const Home = () => {
+  const [products, setProducts] = useState<ProductProps[]>([])
+  
+  useEffect(() => {
+    const getProducts = async () => {
+      const {data} = await axios.get('/api/products');
+      setProducts(data)
+    }
+
+    getProducts()
+  }, [])
+  
+  
   return (
     <>
       <h1>Latest Products</h1>

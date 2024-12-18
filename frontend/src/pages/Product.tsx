@@ -1,15 +1,25 @@
 import { Link, useParams } from "react-router-dom";
-import products, { ProductType } from "../products";
 import { Button, Card, Col, Image, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import Rating from "../components/Rating";
 import {FaCartPlus} from 'react-icons/fa'
 
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { ProductProps } from "./Home";
+
 const Product = () => {
   const { id: productId } = useParams();
 
-  const product = products.find(
-    (item: ProductType) => item._id === Number(productId)
-  );
+  const [product, setProduct] = useState<ProductProps | null>(null)
+  
+  useEffect(() => {
+    const getProduct = async () => {
+      const {data} = await axios.get(`/api/products/${productId}`);
+      setProduct(data)
+    }
+
+    getProduct()
+  }, [productId])
 
   return (
     <>
