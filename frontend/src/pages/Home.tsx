@@ -5,7 +5,7 @@ import Product from "../components/Product";
 import axios from "axios";
 
 export type ProductProps = {
-  _id: number,
+  _id: string,
   name: string,
   image: string,
   description:

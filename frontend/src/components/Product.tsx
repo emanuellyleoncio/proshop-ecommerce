@@ -1,10 +1,21 @@
 import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
-import { ProductType } from "../products";
+
 
 export type ProductProps = {
-  product: ProductType;
+  product: {
+    _id: string;
+    name: string;
+    image: string;
+    description: string;
+    brand: string;
+    category: string;
+    price: number;
+    countInStock: number;
+    rating: number;
+    numReviews: number;
+  };
 };
 
 const Product = ({ product }: ProductProps) => {

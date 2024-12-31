@@ -10,6 +10,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "include": ["./backend/src/**/*.ts", "backend/src/config/db.ts"],
+  "include": ["./backend/src/**/*.ts", "backend/src/config/db.ts", "backend/src/server.ts"],
   "exclude": ["node_modules"]
 }
