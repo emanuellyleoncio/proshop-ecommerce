@@ -1,11 +1,13 @@
-import { Alert } from "react-bootstrap";
+import { ReactNode } from 'react';
+import { Alert } from 'react-bootstrap';
 
-function Message({ variant, children }: { variant: string; children: string }) {
-  return <Alert variant={variant}>{children}</Alert>;
+interface MessageProps {
+  variant?: string;
+  children: ReactNode;
 }
 
-Message.defaultProps = {
-  variant: "info",
-};
+function Message({ variant = 'info', children }: MessageProps) {
+  return <Alert variant={variant}>{children}</Alert>;
+}
 
 export default Message;
