@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
-import Product from "../../models/productModel";
-import asyncHandler from "../../middleware/asyncHandler";
+import asyncHandler from "../middleware/asyncHandler";
+import Product from "../models/productModel";
+
+
 
 // @desc    Fetch all products
 // @route   GET /api/products
