@@ -1,15 +1,35 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar, Nav, Container, Badge } from "react-bootstrap";
+import { Navbar, Nav, Container, Badge, NavDropdown } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
+import { useLogoutMutation } from "../slices/usersApiSlice";
+import { logout } from "../slices/authSlice";
+
+interface CartItem {
+  qty: number;
+}
 
 const Header = () => {
 
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state: any) => state.cart);
+  const { userInfo } = useSelector((state: any) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall({}).unwrap();
+      dispatch(logout({}));
+      
+      navigate('/login');
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
   return (
@@ -26,14 +46,20 @@ const Header = () => {
                 <FaShoppingCart /> Cart
 
                 {cartItems.length > 0 && (
-                  <Badge pill bg='success' style={{ marginLeft: '5px' }}>
-                    {cartItems.reduce((a, c) => a + c.qty, 0)}
-                  </Badge>
+                    <Badge pill bg='success' style={{ marginLeft: '5px' }}>
+                    {cartItems.reduce((a: number, c: CartItem) => a + c.qty, 0)}
+                    </Badge>
                 )}
               </Nav.Link>
-              <Nav.Link as={Link} to="/login">
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="username">
+                  <NavDropdown.Item onClick={() => navigate('/profile')}>Profile</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                </NavDropdown>
+              ) : (<Nav.Link as={Link} to="/login">
                 <FaUser /> Sign In
-              </Nav.Link>
+              </Nav.Link>)}
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
