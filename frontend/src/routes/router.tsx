@@ -13,6 +13,7 @@ import Register from '../pages/Register.tsx';
 import Shipping from '../pages/Shipping.tsx';
 import PrivateRoute from '../components/PrivateRoute.tsx';
 import Payment from '../pages/Payment.tsx';
+import PlaceOrder from '../pages/PlaceOrder.tsx';
 
 
 export const router = createBrowserRouter(
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route path='/shipping' element={<Shipping />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/placeorder' element={<PlaceOrder />} />
       </Route>
     </Route>
   )

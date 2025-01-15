@@ -34,7 +34,7 @@ interface OrderInput {
 // @desc    Create new order
 // @route   POST /api/orders
 // @access  Private
-const addOrderItems = asyncHandler(async (req, res) => {
+const addOrderItems = asyncHandler(async (req: any, res: any) => {
     const { orderItems, shippingAddress, shippingPrice, paymentMethod, itemsPrice, taxPrice, totalPrice }: OrderInput = req.body;
 
     if (orderItems && orderItems.length === 0) {
@@ -49,7 +49,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
             product: item.product,
             _id: undefined,
         })),
-        user: req.user ? req.user._id : undefined,
+        user: req.user,
         shippingAddress,
         shippingPrice,
         paymentMethod,
@@ -65,7 +65,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @desc    Get logged in user orders
 // @route   GET /api/orders/myorders
 // @access  Private
-const getMyOrders = asyncHandler(async (req, res) => {
+const getMyOrders = asyncHandler(async (req: any, res: any) => {
   const orders = await Order.find({ user: req.user ? req.user._id : undefined });
   res.status(200).json(orders);
 });
@@ -73,7 +73,7 @@ const getMyOrders = asyncHandler(async (req, res) => {
 // @desc    Get order by ID
 // @route   GET /api/orders/:id
 // @access  Private
-const getOrderById = asyncHandler(async (req, res) => {
+const getOrderById = asyncHandler(async (req: any, res: any) => {
   const order = await Order.findById(req.params.id).populate('user', 'name email');
 
   if (!order) {
@@ -86,21 +86,21 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @desc    Update order to paid
 // @route   PUT /api/orders/:id/pay
 // @access  Private
-const updateOrderToPaid = asyncHandler(async (req, res) => {
+const updateOrderToPaid = asyncHandler(async (req: any, res: any) => {
   res.json({ message: 'Order paid' });
 });
 
 // @desc    Update order to delivered
 // @route   GET /api/orders/:id/deliver
 // @access  Private/Admin
-const updateOrderToDelivered = asyncHandler(async (req, res) => {
+const updateOrderToDelivered = asyncHandler(async (req: any, res: any) => {
   res.json({ message: 'Order delivered' });
 });
 
 // @desc    Get all orders
 // @route   GET /api/orders
 // @access  Private/Admin
-const getOrders = asyncHandler(async (req, res) => {
+const getOrders = asyncHandler(async (req: any, res: any) => {
   res.json({ message: 'Orders' });
 });
 

@@ -3,11 +3,6 @@ import asyncHandler from "../middleware/asyncHandler";
 import User from "../models/userModel";
 import generateToken from "../utils/generateToken";
 
-interface RequestWithUser extends Request {
-  user: {
-    _id: string;
-  };
-}
 
 // @desc    Auth user & get token
 // @route   POST /api/users/auth
