@@ -119,6 +119,17 @@ interface IOrder extends mongoose.Document {
   isPaid: boolean;
   paidAt?: Date;
   isDelivered: boolean;
+  paymentResult?: {
+
+    id: string;
+
+    status: string;
+
+    update_time: string;
+
+    email_address: string;
+
+  };
   deliveredAt?: Date;
   createdAt?: Date;
   updatedAt?: Date;
