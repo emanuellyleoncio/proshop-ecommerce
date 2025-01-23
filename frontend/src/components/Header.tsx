@@ -26,7 +26,7 @@ const Header = () => {
       dispatch(logout({}));
       
       navigate('/login');
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
     }
   };
@@ -59,6 +59,13 @@ const Header = () => {
               ) : (<Nav.Link as={Link} to="/login">
                 <FaUser /> Sign In
               </Nav.Link>)}
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <NavDropdown.Item as={Link} to='/admin/order-list'>Orders</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/admin/product-list'>Products</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/admin/user-list'>Users</NavDropdown.Item>
+                </NavDropdown>
+              )}
               
             </Nav>
           </Navbar.Collapse>

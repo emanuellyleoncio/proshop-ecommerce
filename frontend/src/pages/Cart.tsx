@@ -18,7 +18,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: any) => state.cart);
   const { cartItems } = cart;
 
   const addToCartHandler = (product, qty) => {

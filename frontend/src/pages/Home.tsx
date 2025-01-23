@@ -18,7 +18,7 @@ export type ProductProps = {
 };
 
 const Home = () => {
-  const { data: products, isLoading, isError } = useGetProductsQuery();
+  const { data: products, isLoading, isError } = useGetProductsQuery({});
 
   return (
     <>

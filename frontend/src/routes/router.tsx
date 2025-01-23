@@ -15,6 +15,13 @@ import PrivateRoute from '../components/PrivateRoute.tsx';
 import Payment from '../pages/Payment.tsx';
 import PlaceOrder from '../pages/PlaceOrder.tsx';
 import Order from '../pages/Order.tsx';
+import Profile from '../pages/Profile.tsx';
+import AdminRoute from '../components/AdminRoute.tsx';
+import OrderList from '../pages/admin/OrderList.tsx';
+import ProductList from '../pages/admin/ProductList.tsx';
+import ProductEdit from '../pages/admin/ProductEdit.tsx';
+import UserList from '../pages/admin/UserList.tsx';
+import UserEdit from '../pages/admin/UserEdit.tsx';
 
 
 export const router = createBrowserRouter(
@@ -32,6 +39,19 @@ export const router = createBrowserRouter(
         <Route path='/payment' element={<Payment />} />
         <Route path='/placeorder' element={<PlaceOrder />} />
         <Route path='/order/:id' element={<Order />} />
+        <Route path='/order/:id' element={<Order />} />
+        <Route path='/profile' element={<Profile />} />
+      </Route>
+
+      <Route path='' element={<AdminRoute />}>
+        <Route path='/admin/order-list' element={<OrderList />} />
+        <Route path='/admin/product-list' element={<ProductList />} />
+        <Route
+          path='/admin/product-list/:pageNumber'
+          element={<ProductEdit />}
+        />
+        <Route path='/admin/user-list' element={<UserList />} />
+        <Route path='/admin/user/:id/edit' element={<UserEdit />} />
       </Route>
     </Route>
   )
