@@ -35,6 +35,7 @@ app.get("/api/config/paypal", (req: Request, res: Response) => {
 });
 
 const __dirname = path.resolve();
+console.log("__dirname", __dirname);
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 setupSwagger(app);

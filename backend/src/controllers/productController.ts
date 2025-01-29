@@ -8,7 +8,7 @@ dotenv.config();
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public
-const getProducts = asyncHandler(async (req: Request, res: Response) => {
+const getProducts = asyncHandler(async (req: any, res: any) => {
   const pageSize = Number(process.env.PAGINATION_LIMIT) || 10;
   const page = Number(req.query.pageNumber) || 1;
 
@@ -32,7 +32,7 @@ const getProducts = asyncHandler(async (req: Request, res: Response) => {
 // @desc    Fetch single product
 // @route   GET /api/products/:id
 // @access  Public
-const getProductById = asyncHandler(async (req: Request, res: Response) => {
+const getProductById = asyncHandler(async (req: any, res: any) => {
   const product = await Product.findById(req.params.id);
   if (product) {
     return res.json(product);
@@ -45,7 +45,7 @@ const getProductById = asyncHandler(async (req: Request, res: Response) => {
 // @desc    Create a product
 // @route   POST /api/products
 // @access  Private/Admin
-const createProduct = asyncHandler(async (req: Request, res: Response) => {
+const createProduct = asyncHandler(async (req: any, res: any) => {
   const product = new Product({
     name: 'Sample name',
     price: 0,
@@ -65,7 +65,7 @@ const createProduct = asyncHandler(async (req: Request, res: Response) => {
 // @desc    Update a product
 // @route   PUT /api/products/:id
 // @access  Private/Admin
-const updateProduct = asyncHandler(async (req: Request, res: Response) => {
+const updateProduct = asyncHandler(async (req: any, res: any) => {
   const { name, price, description, image, brand, category, countInStock } =
     req.body;
 
@@ -91,7 +91,7 @@ const updateProduct = asyncHandler(async (req: Request, res: Response) => {
 // @desc    Delete a product
 // @route   DELETE /api/products/:id
 // @access  Private/Admin
-const deleteProduct = asyncHandler(async (req: Request, res: Response) => {
+const deleteProduct = asyncHandler(async (req: any, res: any) => {
   const product = await Product.findById(req.params.id);
 
   if (product) {
@@ -106,7 +106,7 @@ const deleteProduct = asyncHandler(async (req: Request, res: Response) => {
 // @desc    Create new review
 // @route   POST /api/products/:id/reviews
 // @access  Private
-const createProductReview = asyncHandler(async (req: Request, res: Response) => {
+const createProductReview = asyncHandler(async (req: any, res: any) => {
   const { rating, comment } = req.body;
 
   const product = await Product.findById(req.params.id);
@@ -147,7 +147,7 @@ const createProductReview = asyncHandler(async (req: Request, res: Response) => 
 // @desc    Get top rated products
 // @route   GET /api/products/top
 // @access  Public
-const getTopProducts = asyncHandler(async (req: Request, res: Response) => {
+const getTopProducts = asyncHandler(async (req: any, res: any) => {
   const products = await Product.find({}).sort({ rating: -1 }).limit(3);
 
   res.json(products);

@@ -28,6 +28,8 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
+      <Route path='/page/:pageNumber' element={<Home />} />
+      <Route path='/search/:keyword' element={<Home />} />
       <Route path='/product/:id' element={<Product />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/login' element={<Login />} />
@@ -39,17 +41,14 @@ export const router = createBrowserRouter(
         <Route path='/payment' element={<Payment />} />
         <Route path='/placeorder' element={<PlaceOrder />} />
         <Route path='/order/:id' element={<Order />} />
-        <Route path='/order/:id' element={<Order />} />
         <Route path='/profile' element={<Profile />} />
       </Route>
 
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/order-list' element={<OrderList />} />
         <Route path='/admin/product-list' element={<ProductList />} />
-        <Route
-          path='/admin/product-list/:pageNumber'
-          element={<ProductEdit />}
-        />
+        <Route path='/admin/product-list/:pageNumber' element={<ProductList />} />
+        <Route path='/admin/product/:id/edit' element={<ProductEdit />} />
         <Route path='/admin/user-list' element={<UserList />} />
         <Route path='/admin/user/:id/edit' element={<UserEdit />} />
       </Route>

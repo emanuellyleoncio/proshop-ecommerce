@@ -12,7 +12,7 @@ import {
 import { toast } from "react-toastify";
 import ButtonLinkCustom from "../../components/ButtonLinkCustom";
 import { getErrorMessage } from "../../utils/handleErrorMessage";
-import { Product } from "../../types/Product";
+import { IProduct } from "../../types/Product";
 
 const ProductList = () => {
   const { pageNumber } = useParams();
@@ -25,10 +25,11 @@ const ProductList = () => {
     useDeleteProductMutation();
 
   const deleteHandler = async (id: string) => {
-    if (window.confirm("Are you sure")) {
+    if (window.confirm("Are you sure you want to delete this product?")) {
       try {
         await deleteProduct(id);
         refetch();
+        toast.success("Product deleted successfully");
       } catch (err: any) {
         toast.error(err?.data?.message || err.error);
       }
@@ -43,6 +44,7 @@ const ProductList = () => {
       try {
         await createProduct({});
         refetch();
+        toast.success("Sample Product created successfully. Please update it with product details.");
       } catch (err: any) {
         toast.error(err?.data?.message || err.error);
       }
@@ -82,7 +84,7 @@ const ProductList = () => {
               </tr>
             </thead>
             <tbody>
-                {data.products.map((product: Product) => (
+                {data.products.map((product: IProduct) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>

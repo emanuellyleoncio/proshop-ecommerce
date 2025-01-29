@@ -1,6 +1,7 @@
 import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
+import { BASE_URL } from "../constants";
 
 
 export type ProductProps = {
@@ -22,7 +23,7 @@ const Product = ({ product }: ProductProps) => {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
-        <CardImg src={product.image}></CardImg>
+        <CardImg src={BASE_URL + product.image} style={{ width: "100%", height: "200px", objectFit: "cover" }}></CardImg>
       </Link>
 
       <CardBody>
