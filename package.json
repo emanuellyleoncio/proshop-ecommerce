@@ -11,7 +11,7 @@
     "proj": "concurrently \"npm run dev\" \"npm run client\"",
     "data:import": "ts-node backend/src/seeder.ts",
     "data:destroy": "ts-node backend/src/seeder.ts -d",
-    "build": "npm ci --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm ci --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Emanuelly Leoncio",
   "license": "MIT",
