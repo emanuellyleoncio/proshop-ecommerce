@@ -1,23 +1,10 @@
 {
-  "name": "proshop",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "eCommerce application built withthe MERN stack",
-  "main": "backend/dist/server.js",
+  "main": "dist/server.ts",
   "scripts": {
-    "dev": "ts-node src/server.ts",
-    "construct": "tsc",
-    "start": "node dist/server.js",
-    "client": "npm run dev --prefix ../frontend",
-    "proj": "concurrently \"npm run dev --prefix backend\" \"npm run client\"",
-    "data:import": "ts-node src/seeder.ts",
-    "data:destroy": "ts-node src/seeder.ts -d",
-    "install:all": "npm install && cd frontend && npm install",
-    "build": "npm run build:backend && npm run build:frontend",
-    "build:backend": "tsc",
-    "build:frontend": "npm run build --prefix ../frontend" 
-},
-  "author": "Emanuelly Leoncio",
-  "license": "MIT",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
@@ -45,5 +32,9 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

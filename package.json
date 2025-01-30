@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node backend/src/server.ts",
     "construct": "tsc",
-    "start": "NODE_PATH=./node_modules node backend/dist/server.js",
+    "start": "node backend/dist/server.js",
     "client": "npm run dev --prefix frontend",
     "proj": "concurrently \"npm run dev\" \"npm run client\"",
     "data:import": "ts-node backend/src/seeder.ts",
