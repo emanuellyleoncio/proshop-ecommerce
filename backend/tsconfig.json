@@ -8,7 +8,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "lib": ["ESNext", "dom"], 
-    "types": ["node"],
     "target": "ESNext",
     "module": "CommonJS"
   },
