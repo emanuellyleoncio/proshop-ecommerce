@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
-  "private": true,
-  "version": "0.0.0",
+  "name": "proshop-frontend",
+  "version": "1.0.0",
+  "description": "Frontend of eCommerce application built with the MERN stack",
   "type": "module",
   "scripts": {
     "dev": "vite",
