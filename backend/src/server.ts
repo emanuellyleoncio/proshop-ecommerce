@@ -34,19 +34,20 @@ app.get("/api/config/paypal", (req: Request, res: Response) => {
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
 });
 
-if (process.env.NODE_ENV === 'production') {
-  const __dirname = path.resolve();
-  app.use('/uploads', express.static('/var/data/uploads'));
-  app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
-  app.get('*', (req: any, res: any) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
-  );
-} else {
+if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   const __dirname = path.resolve();
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
   app.get('/', (req: any, res: any) => {
     res.send('API is running....');
+  });
+} else {
+ 
+  app.use('/uploads', express.static('/var/data/uploads'));
+
+  app.get('*', (req: any, res: any) => {
+    const frontendUrl = process.env.FRONTEND_URL || 'https://frontend-proshop-ecommerce-pk0305e9d.vercel.app/';
+    res.redirect(frontendUrl);
   });
 }
 
