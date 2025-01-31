@@ -5,7 +5,6 @@
   "main": "backend/dist/server.js",
   "scripts": {
     "dev": "ts-node backend/src/server.ts",
-    "construct": "tsc",
     "start": "node backend/dist/server.js",
     "client": "npm run dev --prefix frontend",
     "proj": "concurrently \"npm run dev\" \"npm run client\"",
