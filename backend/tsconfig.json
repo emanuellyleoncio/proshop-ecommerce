@@ -10,7 +10,10 @@
     "lib": ["ESNext", "dom"], 
     "target": "ESNext",
     "module": "ES2015",
-    "types": ["node"]
+    "types": ["node"],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "include": ["./src/**/*.ts", "./src/config/db.ts", "./src/server.ts"],
 }
