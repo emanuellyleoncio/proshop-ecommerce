@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "lib": ["ESNext", "dom"], 
     "target": "ESNext",
-    "module": "ES2015"
+    "module": "ES2015",
+    "types": ["node"]
   },
   "include": ["./src/**/*.ts", "./src/config/db.ts", "./src/server.ts"],
 }
