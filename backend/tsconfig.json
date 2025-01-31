@@ -13,7 +13,10 @@
     "types": ["node"],
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@routes/*": ["./src/routes/*"]
+    }
   },
   "include": ["./src/**/*.ts", "./src/config/db.ts", "./src/server.ts"],
 }

@@ -1,8 +1,8 @@
 import path from "path";
 import express, { Request, Response } from "express";
-import productRoutes from "./routes/productRoutes";
-import userRoutes from "./routes/userRoutes";
-import orderRoutes from "./routes/orderRoutes";
+import productRoutes from "@routes/productRoutes";
+import userRoutes from "@routes/userRoutes";
+import orderRoutes from "@routes/orderRoutes";
 import dotenv from "dotenv";
 import { notFound, errorHandler } from "./middleware/errorMiddleware";
 import connectDB from "./config/db";
