@@ -6,8 +6,11 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": ["ESNext", "dom"], 
+    "types": ["node"],
+    "target": "ESNext",
+    "module": "CommonJS"
   },
-  "include": ["./src/**/*.ts", "./src/config/db.ts", "./src/server.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
