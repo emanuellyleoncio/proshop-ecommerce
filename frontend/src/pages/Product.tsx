@@ -23,7 +23,7 @@ import Meta from '../components/Meta';
 import { addToCart } from '../slices/cartSlice';
 import { getErrorMessage } from '../utils/handleErrorMessage';
 import { IReview } from '../types/Review';
-import { BASE_URL } from "../constants";
+import { BASE_URL } from '../constants';
 
 const Product = () => {
   const { id: productId } = useParams();

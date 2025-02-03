@@ -1,4 +1,5 @@
 import path from "path";
+import cors from "cors";
 import express, { Request, Response } from "express";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -14,6 +15,13 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  methods: "GET,POST,PUT,DELETE,PATCH",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true
+}));
 
 connectDB();
 

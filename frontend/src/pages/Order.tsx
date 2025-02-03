@@ -160,7 +160,7 @@ const Order = () => {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={item.image}
+                            src={BASE_URL + item.image}
                             alt={item.name}
                             fluid
                             rounded

@@ -13,6 +13,7 @@ import { FaTrash } from 'react-icons/fa';
 
 import { addToCart, removeFromCart } from '../slices/cartSlice';
 import Message from '../components/Message';
+import { BASE_URL } from '../constants';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const Cart = () => {
               <ListGroup.Item key={item._id}>
                 <Row>
                   <Col md={2}>
-                    <Image src={item.image} alt={item.name} fluid rounded />
+                    <Image src={BASE_URL + item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
                     <Link to={`/product/${item._id}`}>{item.name}</Link>
