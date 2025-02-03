@@ -7,7 +7,6 @@ const SearchBox = () => {
   const navigate = useNavigate();
   const { keyword: urlKeyword } = useParams();
 
-  // FIX: uncontrolled input - urlKeyword may be undefined
   const [keyword, setKeyword] = useState(urlKeyword || '');
 
 interface SubmitHandlerEvent extends React.FormEvent<HTMLFormElement> {}
