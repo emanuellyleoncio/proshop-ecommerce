@@ -54,7 +54,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   app.use('/uploads', express.static('/var/data/uploads'));
 
   app.get('*', (req: any, res: any) => {
-    const frontendUrl = process.env.FRONTEND_URL || 'https://frontend-proshop-ecommerce-pk0305e9d.vercel.app/';
+    const frontendUrl = process.env.FRONTEND_URL || 'https://frontend-proshop-ecommerce-pk0305e9d.vercel.app';
     res.redirect(frontendUrl);
   });
 }
