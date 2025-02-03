@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import asyncHandler from "../middleware/asyncHandler";
-import User from "../models/userModel";
-import generateToken from "../utils/generateToken";
+import asyncHandler from "../middleware/asyncHandler.js";
+import User from "../models/userModel.js";
+import generateToken from "../utils/generateToken.js";
 
 
 // @desc    Auth user & get token

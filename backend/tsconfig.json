@@ -7,16 +7,11 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "lib": ["ESNext", "dom"], 
+    "lib": ["ESNext", "dom"],
     "target": "ESNext",
-    "module": "ES2015",
+    "module": "ES2022",
     "types": ["node"],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "paths": {
-      "@routes/*": ["./src/routes/*"]
-    }
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": ["./src/**/*.ts", "./src/config/db.ts", "./src/server.ts"],
+  "include": ["src/**/*.ts"]
 }

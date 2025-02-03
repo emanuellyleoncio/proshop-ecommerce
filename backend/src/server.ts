@@ -1,14 +1,14 @@
 import path from "path";
 import express, { Request, Response } from "express";
-import productRoutes from "@routes/productRoutes";
-import userRoutes from "@routes/userRoutes";
-import orderRoutes from "@routes/orderRoutes";
+import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import dotenv from "dotenv";
-import { notFound, errorHandler } from "./middleware/errorMiddleware";
-import connectDB from "./config/db";
-import setupSwagger from "./config/swagger";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import connectDB from "./config/db.js";
+import setupSwagger from "./config/swagger.js";
 import cookieParser from "cookie-parser";
-import uploadRoutes from "./routes/uploadRoutes";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config();
 

@@ -1,6 +1,5 @@
-import { Request, Response } from "express";
-import asyncHandler from "../middleware/asyncHandler";
-import Product from "../models/productModel";
+import asyncHandler from "../middleware/asyncHandler.js";
+import Product from "../models/productModel.js";
 import dotenv from 'dotenv';
 
 dotenv.config();

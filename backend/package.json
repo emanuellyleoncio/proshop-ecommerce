@@ -2,9 +2,10 @@
   "name": "proshop-backend",
   "version": "1.0.0",
   "description": "Backend of eCommerce application built with the MERN stack",
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node src/server.ts",
+    "dev": "node --loader ts-node/esm src/server.ts",
     "start": "node dist/server.js",
     "build": "tsc",
     "data:import": "ts-node src/seeder.ts",
